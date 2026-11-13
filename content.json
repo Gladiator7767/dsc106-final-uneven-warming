@@ -1,0 +1,44 @@
+{
+  "hook": {
+    "en": "The world is warming, but can a global average represent every region? You can select a latitudinal band and explore it further. See how the temperature increase in that region changes under different emission scenarios, time periods, or models."
+  },
+  "prediction": {
+    "en": "Without looking at the results, which latitudinal band do you think will warm the most? This question refers to the average of three models under the SSP5-8.5 scenario for the period 2081–2100. First choose an answer, then open the comparison chart."
+  },
+  "global": {
+    "en": "First, let's look at the global picture. Among the three models we selected, the average results of the two scenarios will clearly diverge by the end of the century. The global average provides us with a reference, but it doesn't tell us whether these temperature increases are uniform across different regions."
+  },
+  "regions": {
+    "en": "Now consider the six latitudinal bands together with the global reference. In the century-end average results of the three models, the Arctic latitudinal band shows the greatest warming under both scenarios. You can select a latitudinal band from the map or region menu, and subsequent plots will retain this selection, allowing you to continuously compare the same location."
+  },
+  "scenarios": {
+    "en": "You can try switching between the early, middle, and late periods of the century. Comparing averages over a period makes it easier to discern long-term trends than focusing on just one year. Short-term fluctuations may still bring the two scenarios close together or alter the order of high and low values in certain years and models."
+  },
+  "gap": {
+    "en": "The scenario difference here is the result of subtracting SSP1-2.6 from SSP5-8.5 within the same region, period, and model. It compares simulated outcomes under two different assumptions. It does not represent a probability of occurrence, nor can it be directly interpreted as the effect of a specific policy."
+  },
+  "models": {
+    "en": "The average is just a starting point. To see how much the results differ, we need to examine the models individually. When comparing two scenarios within the same model, we don't mix low-emission results from one model with high-emission results from another."
+  },
+  "range": {
+    "en": "The range here represents the minimum and maximum values among the three models. We selected these three models because the required data was complete. This range is not a confidence interval, nor does it include all CMIP6 models or all possible futures."
+  },
+  "takeaway": {
+    "en": "The global average is useful, but it does not represent the results for every region. By comparing different scenarios, periods, and models along the same latitudinal band, these differences become apparent. When reading a warming value, it's also important to consider where it applies and what assumptions were used."
+  },
+  "limits": {
+    "en": "These are climate simulations under specific conditions, not observed future temperatures. The average for a latitudinal band also masks differences within the band. This comparison describes the data we selected and does not tell us how much a specific location will warm, nor does it assign probabilities to either scenario."
+  },
+  "methods-data": {
+    "en": "We use near-surface air temperature from three CMIP6 models—CanESM5, IPSL-CM6A-LR, and MPI-ESM1-2-LR—selecting one ensemble member from each model. We compare the two scenarios SSP1-2.6 and SSP5-8.5 for the period 2015–2100. The six latitudinal bands include both land and ocean. All warming values are calculated relative to the 1995–2014 average temperature of the same model and region, not compared to pre-industrial conditions."
+  },
+  "methods-calculation": {
+    "en": "Regional averages are weighted by grid area, and annual averages are weighted by the number of days in each month. When calculating period averages and model averages, all years and models have equal weights. Global averages are computed separately, not by simply averaging the means of the six latitude bands. Scenario differences are first calculated within each individual model, then averaged across models. The ten-year average curves use data from the current year and the previous nine years, starting from 2024; smoothing only affects the curve shape, while period comparisons still use annual data."
+  },
+  "progress-done": {
+    "en": "We used the CMIP6 data verified in Project 3 and transformed the page into a sequential interactive story. Readers are first asked to guess which latitudinal band will warm the most, followed by displaying the comparison results. Then, readers can select a region and continue comparing global and regional trends, time periods, and models. Brief explanations link the charts together and distinguish warming from the differences between two scenarios. Next, we will revise the text and further refine it based on feedback from course staff before recording the final video."
+  },
+  "progress-challenge": {
+    "en": "The most challenging design issue is ensuring the story remains clear even when readers change several options. The regions, time periods, and models in charts and captions must remain consistent. Warming and scenario differences need to be clearly labeled separately, as they address different questions. We also want readers to see model differences, but without giving the impression that these three models encompass all possible outcomes. The opening prediction should connect smoothly to subsequent explorations, enabling readers to continue examining results rather than simply accepting a single revealed answer."
+  }
+}
