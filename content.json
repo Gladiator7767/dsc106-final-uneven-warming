@@ -18,10 +18,13 @@
     "en": "The scenario difference here is the result of subtracting SSP1-2.6 from SSP5-8.5 within the same region, period, and model. It compares simulated outcomes under two different assumptions. It does not represent a probability of occurrence, nor can it be directly interpreted as the effect of a specific policy."
   },
   "models": {
-    "en": "The average is just a starting point. To see how much the results differ, we need to examine the models individually. When comparing two scenarios within the same model, we don't mix low-emission results from one model with high-emission results from another."
+    "en": "We saw earlier that global average warming is not representative of every region. In the \"Mean of three models\" view, the numerical value displayed is the average of the results of the three climate models. Here you keep the region and time period you selected, and look at the three models separately to give you an idea of how different the model estimates are behind the average warming in that region."
+  },
+  "models-reading": {
+    "en": "Each row represents a model. Blue dots represent low emission scenarios and orange diamonds represent very high emission scenarios. Both points indicate the temperature change in the selected future period relative to the mean temperature from 1995 to 2014. Comparing two points in the same row shows the gap between the two emission scenarios; comparing the same color points in different rows, we can see the difference in the estimation of different models."
   },
   "range": {
-    "en": "The range here represents the minimum and maximum values among the three models. We selected these three models because the required data was complete. This range is not a confidence interval, nor does it include all CMIP6 models or all possible futures."
+    "en": "The range listed below the figure shows the lowest and highest estimates for the very high emissions scenario for the three models. It is not a confidence interval and there is no guarantee that the future true outcome will necessarily fall into it. We chose these three models because we had all the data we needed; they do not cover all climate models or all possible futures."
   },
   "takeaway": {
     "en": "The global average is useful, but it does not represent the results for every region. By comparing different scenarios, periods, and models along the same latitudinal band, these differences become apparent. When reading a warming value, it's also important to consider where it applies and what assumptions were used."
