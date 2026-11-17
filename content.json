@@ -9,7 +9,7 @@
     "en": "First, let's look at the global picture. Among the three models we selected, the average results of the two scenarios will clearly diverge by the end of the century. The global average provides us with a reference, but it doesn't tell us whether these temperature increases are uniform across different regions."
   },
   "regions": {
-    "en": "Now consider the six latitudinal bands together with the global reference. In the century-end average results of the three models, the Arctic latitudinal band shows the greatest warming under both scenarios. You can select a latitudinal band from the map or region menu, and subsequent plots will retain this selection, allowing you to continuously compare the same location."
+    "en": "Now consider the six latitudinal bands together with the global reference. As a fixed reference example, the Arctic latitudinal band shows the greatest warming under both scenarios in 2081–2100, using the mean of the three models. You can select a latitudinal band from the map or region menu, and subsequent plots will retain this selection, allowing you to continuously compare the same location. Switch to the low-emission scenario and see whether the differences between regions disappear."
   },
   "scenarios": {
     "en": "You can try switching between the early, middle, and late periods of the century. Comparing averages over a period makes it easier to discern long-term trends than focusing on just one year. Short-term fluctuations may still bring the two scenarios close together or alter the order of high and low values in certain years and models."
@@ -27,7 +27,7 @@
     "en": "The range listed below the figure shows the lowest and highest estimates for the very high emissions scenario for the three models. It is not a confidence interval and there is no guarantee that the future true outcome will necessarily fall into it. We chose these three models because we had all the data we needed; they do not cover all climate models or all possible futures."
   },
   "takeaway": {
-    "en": "The global average is useful, but it does not represent the results for every region. By comparing different scenarios, periods, and models along the same latitudinal band, these differences become apparent. When reading a warming value, it's also important to consider where it applies and what assumptions were used."
+    "en": "The global average is useful, but it does not represent the results for every region. By comparing different scenarios, periods, and models along the same latitudinal band, these differences become apparent. The amount of warming also depends on the scenario, period, and model, so an average is not one certain future."
   },
   "limits": {
     "en": "These are climate simulations under specific conditions, not observed future temperatures. The average for a latitudinal band also masks differences within the band. This comparison describes the data we selected and does not tell us how much a specific location will warm, nor does it assign probabilities to either scenario."
