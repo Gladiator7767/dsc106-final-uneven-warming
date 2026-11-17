@@ -5,7 +5,8 @@
   <title>Beyond the Global Average: Exploring Uneven Warming</title>
   <meta name="description" content="A guided CMIP6 explorable: make a prediction, compare six latitude bands, and see how scenario, time and model choices change warming.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
-  <script defer src="vendor/d3.v7.min.js"></script><script defer src="vendor/topojson-client.min.js"></script><script defer src="climate-core.js"></script><script defer src="app.js"></script>
+  <link rel="stylesheet" href="map-views.css">
+  <script defer src="vendor/d3.v7.min.js"></script><script defer src="vendor/topojson-client.min.js"></script><script defer src="climate-core.js"></script><script defer src="map-views.js"></script><script defer src="app.js"></script>
 </head>
 <body>
 <a class="skip" href="#global">Skip to the charts</a>
@@ -34,9 +35,14 @@
       <label>Model view<select id="model"><option value="mean">Mean of three models</option></select></label>
       <button type="button" id="reset" class="quiet-button">Reset story</button>
     </div>
-    <div class="regional-layout">
-      <aside class="locator"><svg id="region-map" viewBox="0 0 420 275" role="group" aria-label="Select one of six latitude bands on an equal-area locator map"></svg><p id="region-caption" class="region-caption"></p><p class="small">The map locates latitude bands. Its color does not encode temperature. Bands include both land and ocean.</p></aside>
-      <div class="chart-card"><div class="chart-top"><h3 id="regional-title">Warming across latitude bands</h3><span class="period-context">2081–2100</span></div><p class="small">Click a row to follow that region. The dashed line is the separately calculated global mean.</p><svg id="regional-chart" role="group" aria-label="Regional warming compared with the global reference"></svg><p id="regional-insight" class="chart-insight" aria-live="polite"></p></div>
+    <div class="chart-card map-regional-card">
+      <div class="chart-top"><h3 id="regional-title">Warming across latitude bands</h3><span class="period-context">2081–2100</span></div>
+      <div class="map-context"><span id="map-global-model"></span><strong id="map-global"></strong></div>
+      <div class="map-regional-layout">
+        <div class="warming-map-wrap"><svg id="region-map" role="group" aria-label="Temperature change averaged over six latitude bands; select a band to follow it"></svg><div id="warming-legend" class="map-legend"></div><p class="band-note">Each color covers a whole latitude band, including land and ocean. It shows the band average, not the temperature at every location. Click a band or a row to follow that region.</p></div>
+        <aside><div class="map-selected"><p class="eyebrow">Following this region</p><p id="region-caption" class="region-caption"></p><p id="map-selected-value" class="map-big-value"></p><p id="map-selected-range" class="small"></p></div><div id="regional-values" aria-label="Regional warming values"></div></aside>
+      </div>
+      <p id="regional-insight" class="chart-insight" aria-live="polite"></p><p class="small">Equal Earth projection. The global reference is calculated separately, not as the simple average of the six bands.</p>
     </div>
   </section>
   <section id="scenarios" class="chapter chapter-wide">
@@ -45,7 +51,15 @@
     <div class="chart-card"><div class="chart-top"><h3 id="regional-line-title">Arctic temperature change</h3><span class="model-context"></span></div><div class="scenario-legend"><span class="low">━━ SSP1-2.6</span><span class="high">┄┄ SSP5-8.5</span><span class="muted">In the mean view, bands show the three-model min–max, not a confidence interval.</span></div><svg id="regional-timeline" role="img" aria-label="Selected region warming; drag horizontally to select a period"></svg><p class="small">Drag across the chart to select a period, or use the buttons and year fields. Hover to read annual values.</p>
     <form id="period-form" class="year-form"><label>Start year<input id="start-year" type="number" min="2015" max="2100" value="2081" required></label><label>End year<input id="end-year" type="number" min="2015" max="2100" value="2100" required></label><button type="submit" class="quiet-button">Apply period</button><p id="period-error" role="alert" hidden></p></form>
     <div id="period-summary" class="period-summary" aria-live="polite"></div><p class="small">Period averages always use the original annual values. Smoothing changes only the displayed lines; full trailing averages begin in 2024.</p></div>
-    <div class="matrix-block"><div><h3>Where does the scenario gap grow?</h3><p data-copy="gap">The scenario difference here is the result of subtracting SSP1-2.6 from SSP5-8.5 within the same region, period, and model. It compares simulated outcomes under two different assumptions. It does not represent a probability of occurrence, nor can it be directly interpreted as the effect of a specific policy.</p><p class="small">Select a cell to change both region and period. The matrix uses three fixed 20-year periods; a custom period is shown in the charts above.</p></div><div class="chart-card"><div id="gap-matrix" class="gap-matrix" role="group" aria-label="Scenario gaps by region and period"></div><div id="matrix-legend" class="matrix-legend"></div></div></div>
+    <div class="map-gap-block" id="scenario-maps">
+      <div class="map-gap-intro"><h3>Where does the scenario gap grow?</h3><div><p data-copy="gap">The scenario difference here is the result of subtracting SSP1-2.6 from SSP5-8.5 within the same region, period, and model. It compares simulated outcomes under two different assumptions. It does not represent a probability of occurrence, nor can it be directly interpreted as the effect of a specific policy.</p><p class="small">Move the time slider to explore how the gap changes, or compare three periods side by side. Click a latitude band to follow it through the story.</p></div></div>
+      <div class="gap-time-toolbar">
+        <div id="gap-time-controls"><label class="gap-slider-label" for="gap-time-slider"><span id="gap-window-label">Move the 20-year window</span><output id="gap-slider-period" for="gap-time-slider">2081–2100</output></label><input type="range" id="gap-time-slider" min="2015" max="2081" step="1" value="2081" aria-describedby="gap-slider-help"><div class="gap-slider-endpoints"><span id="gap-slider-first">2015–2034</span><span id="gap-slider-last">2081–2100</span></div><p id="gap-slider-help" class="small">Drag to shift the period. The linked charts and values update with it.</p></div>
+        <div id="gap-compare-description" hidden><strong>Three fixed 20-year periods</strong><p class="small">2021–2040 · 2041–2060 · 2081–2100<br>Click a band to select its region and period.</p></div>
+        <button type="button" id="gap-view-toggle" aria-controls="gap-maps" aria-pressed="false">Compare three periods ↗</button>
+      </div>
+      <div class="gap-map-context"><strong>SSP5-8.5 minus SSP1-2.6</strong><span id="gap-model-context"></span></div><div id="gap-maps" class="gap-maps" role="group" aria-label="Scenario differences by latitude band"></div><div id="matrix-legend" class="map-legend"></div><p id="gap-custom-note" hidden></p><p class="band-note">Colors encode latitude-band averages, including land and ocean. Orange means more warming under SSP5-8.5; purple means less. Both views use the same fixed color scale.</p>
+    </div>
   </section>
   <section id="models" class="chapter">
     <div class="chapter-intro"><p class="chapter-number">04 / LOOK BEHIND THE MEAN</p><h2>One mean.<br>Three different answers.</h2><p data-copy="models">The average is just a starting point. To see how much the results differ, we need to examine the models individually. When comparing two scenarios within the same model, we don&#x27;t mix low-emission results from one model with high-emission results from another.</p><p data-copy="range" class="small">The range here represents the minimum and maximum values among the three models. We selected these three models because the required data was complete. This range is not a confidence interval, nor does it include all CMIP6 models or all possible futures.</p></div>

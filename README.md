@@ -6,7 +6,7 @@ Exploring Uneven Warming — DSC 106 Final Project.
 
 ## What to explore
 
-Predict which latitude band warms the most, compare it with the global reference, then follow the same region across emissions scenarios, periods and climate models. The D3 charts use linked controls, direct annotations, a shared timeline scale, a scenario-gap matrix, and an exact-value CSV download. The equal-area map is a location guide, not a temperature map.
+Predict which latitude band warms the most, compare it with the global reference, then follow the same region across emissions scenarios, periods and climate models. The D3 charts use linked controls, direct annotations, fixed scales and an exact-value CSV download. Equal Earth maps color the six latitude bands by average temperature change, including land and ocean; they do not show local temperatures. A time slider moves the selected period while keeping its length (20 years by default). Switch to three fixed periods for side-by-side scenario-gap comparisons. Both map views share the same fixed zero-centered color scale.
 
 ## Data and interpretation
 
@@ -23,11 +23,12 @@ Run `python -m http.server 8122` from this repository root, then open `http://lo
 ## Files
 
 - `index.html`, `app.js`, `style.css`: interactive article.
+- `map-views.js`, `map-views.css`: regional maps, time slider and three-period comparison.
 - `about.html`, `about.js`: sources, calculations, team and prototype progress.
 - `climate-core.js`: shared calculation functions.
 - `content.json`: article text with stable paragraph identifiers.
 - `release.json`: website, repository and video URLs. The video entry is empty until a real recording is available; empty entries do not render a placeholder link.
-- `data/`: reviewed annual series, source manifest and locator geometry.
+- `data/`: reviewed annual series, source manifest and land geometry.
 
 ## Team
 
